@@ -11,7 +11,7 @@ To use the already built base image, use the `FROM` command to retrieve the imag
 For a detailed example, look under the `Dockerfile-from-base` file in the repository's root folder.
 
 ### Lambda Configuration
-Recommended Settings:
+**Recommended Settings:**
 1. Set Lambda's timeout to `60 seconds`. </br>
 Usually it takes up to `20 seconds` to extract text from an image with Tesseract in a **cheap** Lambda-based environment, but lets stay on the safe side.
 
