@@ -1,6 +1,7 @@
 FROM yuvalpress/aws-lambda-tesseract:latest
 
-# copy files to the lambda base-image default dir
+# copy files to the lambda base-image default dir, aka /var/task/
+# Make sure the dir you supply as context has both requirements.txt and src/ in it
 COPY requirements.txt src/ ${LAMBDA_TASK_ROOT}/
 
 # Install dependencies
