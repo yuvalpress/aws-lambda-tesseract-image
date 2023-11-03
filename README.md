@@ -13,6 +13,6 @@ For a detailed example, look under the `Dockerfile-from-base` file in the reposi
 ### Lambda Configuration
 **Recommended Settings:**
 1. Set Lambda's timeout to `60 seconds`. </br>
-Usually it takes up to `20 seconds` to extract text from an image with Tesseract in a **cheap** Lambda-based environment, but lets stay on the safe side.
+Usually it takes up to `30 seconds` to extract text from an image with Tesseract in a **cheap** Lambda-based environment, but lets stay on the safe side.
 
 2. Set memory limit to `512M` for faster execution times, but `256M` is also sufficient.
