@@ -5,7 +5,7 @@ FROM yuvalpress/aws-lambda-tesseract:latest
 COPY requirements.txt src/ ${LAMBDA_TASK_ROOT}/
 
 # Install dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Command to run the application, where 'lambda_function' is the file name 
 # and 'handler' is the function name.
