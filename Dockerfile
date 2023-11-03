@@ -50,10 +50,6 @@ ENV TESSDATA_PREFIX=./tessdata
 
 # Copy files into the container
 WORKDIR ${LAMBDA_TASK_ROOT}
-COPY requirements.txt src/ ${LAMBDA_TASK_ROOT}/
-
-# Install dependencies
-RUN pip install -r requirements.txt
 
 # Install languages for the pytesseract module
 RUN mkdir -p ./tessdata && \
@@ -61,5 +57,3 @@ RUN mkdir -p ./tessdata && \
     wget https://github.com/tesseract-ocr/tessdata/raw/main/heb.traineddata -O ./tessdata/heb.traineddata && \
     wget https://github.com/tesseract-ocr/tessdata/raw/main/ara.traineddata -O ./tessdata/ara.traineddata
 
-# Command to run the application
-CMD [ "lambda_function.handler" ]

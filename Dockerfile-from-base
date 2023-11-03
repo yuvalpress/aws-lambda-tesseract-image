@@ -1,0 +1,12 @@
+FROM yuvalpress/aws-lambda-tesseract:latest
+
+# copy files to the lambda base-image default dir
+COPY requirements.txt src/ ${LAMBDA_TASK_ROOT}/
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Command to run the application, where 'lambda_function' is the file name 
+# and 'handler' is the function name.
+# this are the default names for both as requested by AWS, stick to them.
+CMD [ "lambda_function.handler" ]
