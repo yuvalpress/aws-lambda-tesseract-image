@@ -8,4 +8,4 @@ More on Tesseract OCR: <a href=https://github.com/tesseract-ocr/tesseract>Tesser
 
 To use the already built base image, use the `FROM` command to retrieve the image from the `yuvalpress/aws-lambda-tesseract`  repository.
 
-For a detailed example, look under the `Dockerfile-from-base` file in the repositories root folder.
+For a detailed example, look under the `Dockerfile-from-base` file in the repository's root folder.
