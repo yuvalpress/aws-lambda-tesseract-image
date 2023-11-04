@@ -10,10 +10,9 @@ RUN yum -y update && \
 
 # Build and install Leptonica
 RUN wget http://www.leptonica.org/source/leptonica-1.80.0.tar.gz && \
-    tar -xzf leptonica-1.80.0.tar.gz
-
-WORKDIR leptonica-1.80.0
-RUN chmod +x configure && \
+    tar -xzf leptonica-1.80.0.tar.gz && \
+    leptonica-1.80.0 && \
+    chmod +x configure && \
     ./configure && \
     make && \
     make install
@@ -23,12 +22,10 @@ ENV PATH=/usr/sbin/:$PATH
 ENV PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 
 # Build and install Tesseract
-WORKDIR ${LAMBDA_TASK_ROOT}
 RUN wget https://github.com/tesseract-ocr/tesseract/archive/4.1.1.tar.gz -O ./4.1.1.tar.gz && \
-    tar -zxvf ./4.1.1.tar.gz
-
-WORKDIR tesseract-4.1.1
-RUN ./autogen.sh && \
+    tar -zxvf ./4.1.1.tar.gz && \
+    cd tesseract-4.1.1 && \
+    ./autogen.sh && \
     ./configure && \
     make && \
     make install
@@ -47,9 +44,6 @@ RUN yum -y install \
 
 # Set Tesseract language files location
 ENV TESSDATA_PREFIX=./tessdata
-
-# Copy files into the container
-WORKDIR ${LAMBDA_TASK_ROOT}
 
 # Install languages for the pytesseract module
 RUN mkdir -p ./tessdata && \
