@@ -11,7 +11,7 @@ RUN yum -y update && \
 # Build and install Leptonica
 RUN wget http://www.leptonica.org/source/leptonica-1.80.0.tar.gz && \
     tar -xzf leptonica-1.80.0.tar.gz && \
-    leptonica-1.80.0 && \
+    cd leptonica-1.80.0 && \
     chmod +x configure && \
     ./configure && \
     make && \
